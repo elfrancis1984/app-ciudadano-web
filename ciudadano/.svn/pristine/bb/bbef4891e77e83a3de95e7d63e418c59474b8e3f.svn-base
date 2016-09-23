@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ec.gob.mdt.ciudadano</groupId>
+	<artifactId>ciudadano</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	<name>ciudadano</name>
+	<organization>
+		<name>Ministerio del Trabajo</name>
+		<url>http://www.trabajo.gob.ec/</url>
+	</organization>	
+	<licenses>
+		<license>
+			<name>No Free</name>
+			<url>http://www.trabajo.gob.ec</url>
+			<distribution>interna</distribution>
+			<comments>Derechos reservados</comments>
+		</license>
+	</licenses>
+	<modules>
+		<module>ciudadano_ear</module>
+		<module>ciudadano_web</module>		
+		<module>ciudadano_ejb</module>		
+	</modules>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+</project>

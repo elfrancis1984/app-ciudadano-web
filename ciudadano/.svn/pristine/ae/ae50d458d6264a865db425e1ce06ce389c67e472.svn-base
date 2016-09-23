@@ -1,0 +1,7 @@
+.no-clearable .ui-input-clear {
+	visibility: hidden;
+}
+
+.bold {
+	font-weight: bold !important;
+}

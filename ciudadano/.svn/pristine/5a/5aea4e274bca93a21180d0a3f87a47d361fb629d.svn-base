@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions">
+<ui:composition>
+
+	<ui:include src="/template/fragment/status.xhtml" />
+
+	<pe:importConstants className="ec.gob.mdt.ciudadano.model.app.Rol" var="ROL" />
+
+	<h:form>
+		<p:menubar id="menuBar" rendered="#{autenticacionBean.autenticado}">
+			<p:menuitem value="Inicio" action="/index?faces-redirect=true" icon="ui-icon-home" />
+			
+			<p:submenu label="Seguridad" icon="ui-icon-wrench" rendered="#{autenticacionBean.isUserInRole(ROL.ROL_ADMINISTRADOR)}">
+				<p:menuitem value="Usuarios" url="#" icon="ui-icon-person" />
+				<p:separator />
+				<p:menuitem value="Accesos" url="#" icon="ui-icon-key" />
+			</p:submenu>
+
+			<p:submenu label="Contenido" icon="ui-icon-pencil" rendered="#{autenticacionBean.isUserInRole(ROL.ROL_ADMINISTRADOR) or autenticacionBean.isUserInRole(ROL.ROL_EDITOR)}">
+				<p:menuitem value="Noticias" action="/web/editor/noticias?faces-redirect=true" icon="ui-icon-script" />
+				<p:menuitem value="Ayuda" url="#" icon="ui-icon-help" />
+			</p:submenu>
+
+			<p:menuitem value="Versión móvil" action="/movil/indexPaged?faces-redirect=true" icon="ui-icon-contact" />
+
+			<f:facet name="options">
+				<p:outputLabel styleClass="bold" style="margin-right:10px" value="#{autenticacionBean.usuario.usuario}" />
+				<p:commandButton actionListener="#{autenticacionBean.cerrarSesion()}" process="@this" value="Cerrar sesión" icon="ui-icon-extlink">
+					<p:confirm header="Confirmación" icon="ui-icon-alert" message="¿Está seguro que desea continuar?" />
+				</p:commandButton>
+			</f:facet>
+		</p:menubar>
+		<p:sticky target="menuBar" rendered="#{autenticacionBean.autenticado}" />
+	</h:form>
+
+	<br />
+
+</ui:composition>
+</html>

@@ -1,0 +1,1 @@
+insert into seguridad.rol values (nextval('seguridad.sequence_rol'), 'administrador'), (nextval('seguridad.sequence_rol'), 'editor'), (nextval('seguridad.sequence_rol'), 'usuario')

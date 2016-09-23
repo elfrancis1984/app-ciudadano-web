@@ -1,0 +1,4 @@
+ec/gob/mdt/ciudadano/ejb/facade/app/remote/UsuarioFacadeInterface.class
+ec/gob/mdt/ciudadano/ejb/ContextUtil.class
+ec/gob/mdt/ciudadano/realm/CustomRealm.class
+ec/gob/mdt/ciudadano/realm/LoginModule.class

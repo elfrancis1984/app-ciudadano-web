@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<persistence-unit name="ciudadano_jpa" transaction-type="JTA">		
+		<jta-data-source>source/ciudadano</jta-data-source>
+		<class>ec.gob.mdt.ciudadano.model.converter.ConverterDate</class>
+		<class>ec.gob.mdt.ciudadano.model.app.Noticia</class>
+		<class>ec.gob.mdt.ciudadano.model.app.Usuario</class>
+		<class>ec.gob.mdt.ciudadano.model.app.Rol</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>		
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+		<validation-mode>AUTO</validation-mode>		
+		<properties>
+			<property name="javax.persistence.schema-generation.database.action" value="create" />			
+			<property name="filterStatus" value="1"/>
+			<property name="javax.persistence.schema-generation.create-database-schemas" value="true"/>
+			<property name="javax.persistence.sql-load-script-source" value="META-INF/load.sql"/>
+		</properties>		
+	</persistence-unit>
+
+	<persistence-unit name="sgi_jpa" transaction-type="JTA">
+		<jta-data-source>source/sgi</jta-data-source>		
+		<class>ec.gob.mdt.ciudadano.model.converter.ConverterGenero</class>
+		<class>ec.gob.mdt.ciudadano.model.legacy.EntidadEmpleadoEmpresaSgi</class>
+		<class>ec.gob.mdt.ciudadano.model.legacy.EntidadEmpresaSgi</class>
+		<class>ec.gob.mdt.ciudadano.model.legacy.EntidadPersonaSgi</class>		
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>				
+	</persistence-unit>
+
+</persistence>

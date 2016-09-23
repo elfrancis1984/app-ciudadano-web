@@ -1,0 +1,14 @@
+/home/francisco/workspace/ciudadano/ciudadano_web/src/main/java/ec/gob/mdt/ciudadano/web/bean/NoticiasBean.java
+/home/francisco/workspace/ciudadano/ciudadano_web/src/main/java/ec/gob/mdt/ciudadano/web/rest/EmpleadoEmpresaRest.java
+/home/francisco/workspace/ciudadano/ciudadano_web/src/main/java/ec/gob/mdt/ciudadano/web/listener/MultiPageMessagesSupport.java
+/home/francisco/workspace/ciudadano/ciudadano_web/src/main/java/ec/gob/mdt/ciudadano/web/converter/ListToStringConverter.java
+/home/francisco/workspace/ciudadano/ciudadano_web/src/main/java/ec/gob/mdt/ciudadano/web/util/EndOperation.java
+/home/francisco/workspace/ciudadano/ciudadano_web/src/main/java/ec/gob/mdt/ciudadano/web/bean/EmpleadoBean.java
+/home/francisco/workspace/ciudadano/ciudadano_web/src/main/java/ec/gob/mdt/ciudadano/web/converter/BooleanToStringConverter.java
+/home/francisco/workspace/ciudadano/ciudadano_web/src/main/java/ec/gob/mdt/ciudadano/web/converter/EmailValidator.java
+/home/francisco/workspace/ciudadano/ciudadano_web/src/main/java/ec/gob/mdt/ciudadano/web/converter/StringTrimmer.java
+/home/francisco/workspace/ciudadano/ciudadano_web/src/main/java/ec/gob/mdt/ciudadano/web/rest/base/ApplicationRest.java
+/home/francisco/workspace/ciudadano/ciudadano_web/src/main/java/ec/gob/mdt/ciudadano/web/rest/NoticiaRest.java
+/home/francisco/workspace/ciudadano/ciudadano_web/src/main/java/ec/gob/mdt/ciudadano/web/util/JsfUtil.java
+/home/francisco/workspace/ciudadano/ciudadano_web/src/main/java/ec/gob/mdt/ciudadano/web/bean/AutenticacionBean.java
+/home/francisco/workspace/ciudadano/ciudadano_web/src/main/java/ec/gob/mdt/ciudadano/web/converter/SelectItemConverter.java

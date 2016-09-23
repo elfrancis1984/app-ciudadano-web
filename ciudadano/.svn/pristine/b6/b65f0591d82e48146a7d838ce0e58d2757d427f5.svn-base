@@ -1,0 +1,101 @@
+package ec.gob.mdt.ciudadano.model.app.base;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import org.eclipse.persistence.annotations.AdditionalCriteria;
+
+@MappedSuperclass
+@AdditionalCriteria(":filterStatus = 1 and this.estado = true")
+public abstract class BaseEntity implements Serializable {
+
+	private static final long serialVersionUID = -8952068548320139605L;
+
+	protected Boolean estado = true;
+
+	@Transient
+	private boolean seleccionado;
+
+	public abstract Integer getId();
+
+	public abstract void setId(Integer id);
+
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date fechaCreacion;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date fechaActualizacion;
+
+	protected String usuarioCreacion;
+
+	protected String usuarioActualizacion;
+
+	public Boolean getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+
+	public boolean isPersisted() {
+		return getId() != null;
+	}
+
+	public boolean isSeleccionado() {
+		return seleccionado;
+	}
+
+	public void setSeleccionado(boolean seleccionado) {
+		this.seleccionado = seleccionado;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public Date getFechaActualizacion() {
+		return fechaActualizacion;
+	}
+
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+	public String getUsuarioCreacion() {
+		return usuarioCreacion;
+	}
+
+	public void setUsuarioCreacion(String usuarioCreacion) {
+		this.usuarioCreacion = usuarioCreacion;
+	}
+
+	public String getUsuarioActualizacion() {
+		return usuarioActualizacion;
+	}
+
+	public void setUsuarioActualizacion(String usuarioActualizacion) {
+		this.usuarioActualizacion = usuarioActualizacion;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		BaseEntity base = (BaseEntity) obj;
+		if (this.getId() == null && base.getId() == null)
+			return super.equals(obj);
+		if (this.getId() == null || base.getId() == null)
+			return false;
+		return this.getId().equals(base.getId());
+	}
+}

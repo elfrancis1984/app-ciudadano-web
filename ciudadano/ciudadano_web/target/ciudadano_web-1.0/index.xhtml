@@ -1,0 +1,28 @@
+<ui:composition template="/template/main.xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:pm="http://primefaces.org/mobile">
+
+	<ui:define name="content">
+
+		<h:form>
+
+			<h:panelGrid columns="1" styleClass="alCenter w100">
+				<h:panelGrid columns="1" styleClass="w25">
+					<p:panel header="Autenticación" styleClass="w100" rendered="#{!autenticacionBean.autenticado}">
+						<h:panelGrid columns="2" columnClasses="alRight, field_mrg alLeft" styleClass="w100">
+							<p:outputLabel value="Usuario" />
+							<p:inputText value="#{autenticacionBean.usuario.usuario}" required="true" styleClass="w100" />
+							<p:outputLabel value="Contraseña" />
+							<p:password value="#{autenticacionBean.usuario.contrasenna}" required="true" styleClass="w100" />
+							<h:outputText />
+						</h:panelGrid>
+						<div class="buttons">
+							<p:commandButton actionListener="#{autenticacionBean.autenticar()}" value="Aceptar" ajax="false" />
+						</div>
+					</p:panel>
+				</h:panelGrid>
+			</h:panelGrid>
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

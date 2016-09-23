@@ -1,0 +1,63 @@
+<ui:composition template="/template/main.xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:pm="http://primefaces.org/mobile">
+
+	<ui:define name="content">
+
+		<h:form id="form">
+
+			<p:panel header="Noticias">
+				<div class="buttons">
+					<p:commandButton value="Adicionar" process="@this" update="adicionarNoticia" icon="ui-icon-plusthick" oncomplete="PF('adicionarNoticia').show()" />
+				</div>
+				<br />
+
+				<p:dataTable id="tablaNoticias" value="#{noticiasBean.noticias}" rowIndexVar="index" var="noticia" rows="25" emptyMessage="Sin resultados" sortBy="#{noticia.fechaActualizacion}" sortOrder="descending">
+					<p:column styleClass="alCenter w25px">
+						<h:panelGroup rendered="#{index lt 16}">
+							<i class="ui-icon ui-icon-check"></i>
+						</h:panelGroup>
+					</p:column>
+					<p:column headerText="Modificación" styleClass="alCenter w15">
+						<h:outputText value="#{noticia.fechaActualizacion}">
+							<f:convertDateTime pattern="dd/MM/yyyy h:mm a" />
+						</h:outputText>
+					</p:column>
+					<p:column headerText="Título">
+						<h:outputText value="#{noticia.titulo}" />
+					</p:column>
+					<p:column styleClass="alCenter w70px">
+						<p:commandButton process="@this" update=":form:adicionarNoticia" icon="ui-icon-pencil" actionListener="#{noticiasBean.seleccionarNoticia(noticia)}" oncomplete="PF('adicionarNoticia').show();" />	
+						<p:commandButton process="@this" update="tablaNoticias" icon="ui-icon-trash" actionListener="#{noticiasBean.eliminarNoticia(noticia)}">
+							<p:confirm header="Confirmación" icon="ui-icon-alert" message="¿Está seguro que desea continuar?" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+
+			</p:panel>
+
+			<p:dialog header="Noticia" id="adicionarNoticia" widgetVar="adicionarNoticia" modal="true" width="600">
+				<h:panelGrid styleClass="w100" columns="1" id="adicionarNoticiaContainer">
+					<p:outputLabel value="Título" for="titulo" styleClass="bold" />
+					<p:inputTextarea value="#{noticiasBean.noticia.titulo}" maxlength="150" rows="2" addLine="false" autoResize="false" id="titulo" styleClass="w100" required="true" />
+					<p:outputLabel value="Contenido" for="contenido" styleClass="bold" />
+					<p:editor value="#{noticiasBean.noticia.cuerpo}" id="contenido" required="true" />
+					<p:separator />
+				</h:panelGrid>
+				<div class="buttons">
+					<p:commandButton value="Aceptar" process="@this adicionarNoticiaContainer" update="tablaNoticias" oncomplete="processNoticia(xhr, status, args)" icon="ui-icon-check" actionListener="#{noticiasBean.guardarNoticia()}" />
+					<p:commandButton value="Cancelar" icon="ui-icon-cancel" type="button" onclick="PF('adicionarNoticia').hide();" />
+				</div>
+			</p:dialog>
+
+		</h:form>
+
+		<script type="text/javascript">
+			function processNoticia(xhr, status, args) {
+				if(args.noticia) {
+					PF('adicionarNoticia').hide();
+				}
+			}
+		</script>
+
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<ui:composition>
+
+	<p:confirmDialog global="true" showEffect="fade">
+		<div class="buttons">
+			<p:commandButton value="Aceptar" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		</div>
+	</p:confirmDialog>
+
+	<p:growl showDetail="false" autoUpdate="true" life="10000" />
+
+</ui:composition>
+</html>

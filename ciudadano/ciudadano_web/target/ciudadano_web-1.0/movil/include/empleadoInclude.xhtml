@@ -1,0 +1,115 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:pm="http://primefaces.org/mobile">
+
+	<h:form>
+
+		<ui:repeat var="empleo" value="#{empleadoBean.empleadosEmpresa}" varStatus="var">
+			<p:panel header="#{empleo.empresa.razonSocial}" toggleable="true" collapsed="#{var.index != 0}">
+				<p:tabView>
+					<p:tab title="Contratación">
+						<pm:field>
+							<p:outputLabel value="RUC" />
+							<p:inputText value="#{empleo.empresa.empRuc}" readonly="true" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field>
+							<p:outputLabel value="Razón social" />
+							<p:inputText value="#{empleo.empresa.razonSocial}" readonly="true" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field>
+							<p:outputLabel value="¿Contrato registrado?" />
+							<p:inputText value="#{empleo.registradoMdt}" readonly="true" converter="booleanToStringConverter" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field>
+							<p:outputLabel value="Contrato firmado" />
+							<p:inputText value="#{empleo.fechaRegistroContratoMdt}" readonly="true" styleClass="no-clearable">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</p:inputText>
+						</pm:field>
+						<pm:field>
+							<p:outputLabel value="Contrato registrado" />
+							<p:inputText value="#{empleo.fechaRegistroMdt}" readonly="true" styleClass="no-clearable">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</p:inputText>
+						</pm:field>
+						<pm:field>
+							<p:outputLabel value="¿Recibió decimotercer?" />
+							<p:inputText value="#{empleo.decimoTerceroBMdt}" readonly="true" converter="booleanToStringConverter" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field rendered="#{empleo.decimoTerceroBMdt}">
+							<p:outputLabel value="Valor decimotercer" />
+							<p:inputText value="#{empleo.decimoTerceroVMdt}" readonly="true" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field>
+							<p:outputLabel value="¿Recibió decimocuarto?" />
+							<p:inputText value="#{empleo.decimoCuartoBMdt}" readonly="true" converter="booleanToStringConverter" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field rendered="#{empleo.decimoCuartoBMdt}">
+							<p:outputLabel value="Valor decimocuarto" />
+							<p:inputText value="#{empleo.decimoCuartoVMdt}" readonly="true" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field>
+							<p:outputLabel value="¿Recibió utilidades?" />
+							<p:inputText value="#{empleo.utilidadesBMdt}" readonly="true" converter="booleanToStringConverter" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field rendered="#{empleo.utilidadesBMdt}">
+							<p:outputLabel value="Valor utilidades" />
+							<p:inputText value="#{empleo.utilidadesVMdt}" readonly="true" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field>
+							<p:outputLabel value="¿Registra discapacidad MDT?" />
+							<p:inputText value="#{empleo.discapacitadoMdt}" readonly="true" converter="booleanToStringConverter" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field rendered="#{empleo.discapacitadoMdt}">
+							<p:outputLabel value="¿Registrado MSP?" />
+							<p:inputText value="#{empleo.registradoMs}" readonly="true" converter="booleanToStringConverter" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field rendered="#{empleo.discapacitadoMdt and empleo.registradoMs}">
+							<p:outputLabel value="¿Registra discapacidad MSP?" />
+							<p:inputText value="#{empleo.discapacitadoMs}" readonly="true" converter="booleanToStringConverter" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field>
+							<p:outputLabel value="¿Acta de finiquito?" />
+							<p:inputText value="#{empleo.finiquitadoMdt}" readonly="true" converter="booleanToStringConverter" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field rendered="#{empleo.finiquitadoMdt}">
+							<p:outputLabel value="Finiquito firmado" />
+							<p:inputText value="#{empleo.fechaFiniquitoFirmada}" readonly="true" styleClass="no-clearable">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</p:inputText>
+						</pm:field>
+						<pm:field rendered="#{empleo.finiquitadoMdt}">
+							<p:outputLabel value="Finiquito registrado" />
+							<p:inputText value="#{empleo.fechaFiniquito}" readonly="true" styleClass="no-clearable">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</p:inputText>
+						</pm:field>
+					</p:tab>
+
+					<p:tab title="Seguridad social">
+						<pm:field>
+							<p:outputLabel value="¿Registrado IESS?" />
+							<p:inputText value="#{empleo.registradoIess}" readonly="true" converter="booleanToStringConverter" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field rendered="#{empleo.registradoIess}">
+							<p:outputLabel value="Registrado" />
+							<p:inputText value="#{empleo.fechaRegistroIess}" readonly="true" styleClass="no-clearable">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</p:inputText>
+						</pm:field>
+						<pm:field rendered="#{empleo.registradoIess}">
+							<p:outputLabel value="Aviso de salida" />
+							<p:inputText value="#{empleo.avisoSalidaIess}" readonly="true" converter="booleanToStringConverter" styleClass="no-clearable" />
+						</pm:field>
+						<pm:field rendered="#{empleo.registradoIess and empleo.avisoSalidaIess}">
+							<p:outputLabel value="Registro de salida" />
+							<p:inputText value="#{empleo.fechaSalidaIess}" readonly="true" styleClass="no-clearable">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</p:inputText>
+						</pm:field>
+					</p:tab>
+				</p:tabView>
+			</p:panel>
+		</ui:repeat>
+
+	</h:form>
+
+</ui:composition>

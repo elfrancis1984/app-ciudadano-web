@@ -1,0 +1,37 @@
+<ui:composition template="/WEB-INF/error/template.xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:pm="http://primefaces.org/mobile">
+
+	<ui:define name="content">
+
+		<h:form>
+
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<h:panelGrid columns="1" styleClass="alCenter w100" columnClasses="w100">
+				<h:panelGrid columns="1" styleClass="w66">
+					<div class="ui-messages-error ui-corner-all">
+						<span class="ui-messages-error-icon"></span> <span class="ui-messages-info-summary">Atención</span><span class="ui-messages-error-detail">La página que ha solicitado no existe.</span>
+					</div>
+				</h:panelGrid>
+			</h:panelGrid>
+			
+			<br />
+			<br />
+			
+			<h:panelGrid columns="1" styleClass="alCenter w100" columnClasses="w100">
+				<h:panelGrid columns="1" styleClass="w66 alCenter">
+					<h:link value="Ir a la página de inicio" outcome="/index" />
+					<p:separator />
+				</h:panelGrid>				
+			</h:panelGrid>
+			
+			<br />		
+			
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

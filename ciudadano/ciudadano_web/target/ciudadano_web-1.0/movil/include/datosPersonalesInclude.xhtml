@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:pm="http://primefaces.org/mobile">
+
+	<h:form>
+
+		<p:panel header="Datos personales">
+			<pm:field>
+				<p:outputLabel value="Nombre completo" />
+				<p:inputText value="#{empleadoBean.entidadPersonaSgi.nombreCompleto}" readonly="true" styleClass="no-clearable" />
+			</pm:field>
+			<pm:field>
+				<p:outputLabel value="Cédula" />
+				<p:inputText value="#{empleadoBean.entidadPersonaSgi.identificacion}" readonly="true" styleClass="no-clearable" />
+			</pm:field>
+			<pm:field>
+				<p:outputLabel value="Género" />
+				<p:inputText value="#{empleadoBean.entidadPersonaSgi.genero}" readonly="true" styleClass="no-clearable" />
+			</pm:field>
+			<pm:field>
+				<p:outputLabel value="Fecha de nacimiento" />
+				<p:inputText value="#{empleadoBean.entidadPersonaSgi.fechaNacimiento}" readonly="true" styleClass="no-clearable">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</p:inputText>
+			</pm:field>
+			<pm:field>
+				<p:outputLabel value="Correo" />
+				<p:inputText value="#{empleadoBean.entidadPersonaSgi.correo}" readonly="true" styleClass="no-clearable" />
+			</pm:field>
+			<pm:field>
+				<p:outputLabel value="Teléfono" />
+				<p:inputText value="#{empleadoBean.entidadPersonaSgi.telefono}" readonly="true" styleClass="no-clearable" />
+			</pm:field>
+		</p:panel>
+		
+		<p:commandButton type="button" value="SAMPLE" onclick="$('.buttonBackMovil').click()" />
+
+	</h:form>
+
+</ui:composition>

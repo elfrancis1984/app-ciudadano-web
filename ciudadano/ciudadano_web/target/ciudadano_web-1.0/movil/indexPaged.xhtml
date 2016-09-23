@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:pm="http://primefaces.org/mobile">
+<h:head>
+	<title>Ciudadano</title>
+	<h:outputStylesheet library="css" name="layout.css" />
+	<h:outputStylesheet library="css" name="default.css" />
+	<h:outputScript library="js" name="common.js"></h:outputScript>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body>
+
+	<f:view renderKitId="PRIMEFACES_MOBILE" />
+
+	<p:growl id="messages" showDetail="true" autoUpdate="true" />
+
+	<pm:page id="main">
+		<pm:header title="MENÚ" fixed="true" swatch="b"></pm:header>
+		<pm:content>
+			<h:form>
+				<p:menu>
+					<p:menuitem icon="ui-icon-user" value="Datos personales" outcome="pm:datosPersonales?transition=slide" />
+					<p:menuitem icon="ui-icon-calendar" value="Historial laboral" outcome="pm:historial?transition=slide" />
+				</p:menu>
+			</h:form>
+		</pm:content>
+	</pm:page>
+
+	<pm:page id="datosPersonales" lazy="true">
+		<pm:header fixed="true" swatch="b">
+			<p:button styleClass="buttonBackMovil ui-btn-left ui-btn-inline" value="Regresar" icon="ui-icon-arrow-l" outcome="pm:main?transition=slide" />
+			<h1>
+				<h:outputText value="DATOS PERSONALES" />
+			</h1>
+		</pm:header>
+		<pm:content>
+			<ui:include src="/movil/include/datosPersonalesInclude.xhtml" />
+		</pm:content>
+	</pm:page>
+
+	<pm:page id="historial" lazy="true">
+		<pm:header fixed="true" swatch="b">
+			<p:button styleClass="buttonBackMovil ui-btn-left ui-btn-inline" value="Regresar" icon="ui-icon-arrow-l" outcome="pm:main?transition=slide" />
+			<h1>
+				<h:outputText value="HISTORIAL LABORAL" />
+			</h1>
+		</pm:header>
+		<pm:content>
+			<ui:include src="/movil/include/empleadoInclude.xhtml" />
+		</pm:content>
+	</pm:page>
+
+</h:body>
+</html>
